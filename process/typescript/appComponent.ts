@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-
+import {ArtistUnitComponent} from './artistunit_component';
+import {ArtistDetailsComponent} from './artistdetails_component';
 interface Artist {
   name: string;
   shortname: string;
@@ -10,6 +11,7 @@ interface Artist {
 @Component({
   selector : 'my-app',
   templateUrl : '../partials/appComponent.html',
+  directives: [ArtistUnitComponent, ArtistDetailsComponent],
   styleUrls : ['../css/app.css']
 })
 
@@ -17,21 +19,25 @@ export class AppComponent {
   name: string;
   artists: any;
   artistsarr: string[];
-    onClick(item, myElement) {
-      this.name = item.name;
+  currentArtist: Artist;
+  showArtist(unit) {
+    this.currentArtist = unit;
+  }
+  onClick(item, myElement) {
+    this.name = item.name;
       //console.log(myElement);
-      myElement.style.backgroundColor="#FECE4E";
+    myElement.style.backgroundColor="#FECE4E";
       //console.log(e.innterHTML);
-    }
-    addArtist(myArtist) {
-      var n = myArtist.split(" ");
-      var obj = {name : n[0], school : n[1]};
-      this.artists.push(obj);
-    }
-    constructor(){
-      this.artistsarr = ['1','2','3'];
-      this.artists = ARTISTS;
-    }
+  }
+  addArtist(myArtist) {
+    var n = myArtist.split(" ");
+    var obj = {name : n[0], school : n[1]};
+    this.artists.push(obj);
+  }
+  constructor(){
+    this.artistsarr = ['1','2','3'];
+    this.artists = ARTISTS;
+  }
 }
 
 var ARTISTS: Artist[] = [

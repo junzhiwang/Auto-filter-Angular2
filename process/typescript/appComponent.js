@@ -1,4 +1,4 @@
-System.register(["angular2/core"], function (exports_1, context_1) {
+System.register(["angular2/core", "./artistunit_component", "./artistdetails_component"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,11 +10,17 @@ System.register(["angular2/core"], function (exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var __moduleName = context_1 && context_1.id;
-    var core_1, AppComponent, ARTISTS;
+    var core_1, artistunit_component_1, artistdetails_component_1, AppComponent, ARTISTS;
     return {
         setters: [
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (artistunit_component_1_1) {
+                artistunit_component_1 = artistunit_component_1_1;
+            },
+            function (artistdetails_component_1_1) {
+                artistdetails_component_1 = artistdetails_component_1_1;
             }
         ],
         execute: function () {
@@ -23,6 +29,9 @@ System.register(["angular2/core"], function (exports_1, context_1) {
                     this.artistsarr = ['1', '2', '3'];
                     this.artists = ARTISTS;
                 }
+                AppComponent.prototype.showArtist = function (unit) {
+                    this.currentArtist = unit;
+                };
                 AppComponent.prototype.onClick = function (item, myElement) {
                     this.name = item.name;
                     //console.log(myElement);
@@ -40,6 +49,7 @@ System.register(["angular2/core"], function (exports_1, context_1) {
                 core_1.Component({
                     selector: 'my-app',
                     templateUrl: '../partials/appComponent.html',
+                    directives: [artistunit_component_1.ArtistUnitComponent, artistdetails_component_1.ArtistDetailsComponent],
                     styleUrls: ['../css/app.css']
                 }),
                 __metadata("design:paramtypes", [])
