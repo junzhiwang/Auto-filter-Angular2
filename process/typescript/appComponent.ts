@@ -1,18 +1,15 @@
 import {Component} from 'angular2/core';
 import {ArtistUnitComponent} from './artistunit_component';
 import {ArtistDetailsComponent} from './artistdetails_component';
-interface Artist {
-  name: string;
-  shortname: string;
-  reknown: string;
-  bio: string;
-}
+import {Artist} from './artist';
+import {SearchPipe} from './search_pipe';
 
 @Component({
   selector : 'my-app',
   templateUrl : '../partials/appComponent.html',
   directives: [ArtistUnitComponent, ArtistDetailsComponent],
-  styleUrls : ['../css/app.css']
+  styleUrls : ['../css/app.css'],
+  pipes : [SearchPipe]
 })
 
 export class AppComponent {
@@ -22,17 +19,6 @@ export class AppComponent {
   currentArtist: Artist;
   showArtist(unit) {
     this.currentArtist = unit;
-  }
-  onClick(item, myElement) {
-    this.name = item.name;
-      //console.log(myElement);
-    myElement.style.backgroundColor="#FECE4E";
-      //console.log(e.innterHTML);
-  }
-  addArtist(myArtist) {
-    var n = myArtist.split(" ");
-    var obj = {name : n[0], school : n[1]};
-    this.artists.push(obj);
   }
   constructor(){
     this.artistsarr = ['1','2','3'];

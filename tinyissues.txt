@@ -1,0 +1,35 @@
+How to avoid auto-generating javascript from typescript:
+Go to "tsconfig.json":
+The compileOnSave option belongs at the top level, between compilerOptions and exclude:
+
+{
+    "compilerOptions": { ... },
+    "compileOnSave": false,
+    "exclude": [ ... ]
+}
+
+mongo: http://tinyurl.com/zwq42kh
+duplicate key: null
+if you define a schema's element in unique, it will generate an index in mongo, so when you insert a document without this element, it will create a "null" key. So you cannot insert twice document that doesn't contain this element.
+
+first: paste content in (/var/root/.ssh/id_rsa.pub) to your new repository's
+setting: ssh-key
+mkdir <new-folder>
+sudo chmod 0777 <new-folder>
+cd <new-folder>
+git clone <url-of-repository>
+
+git remote add <alias> <url> (create local alias of remote repos)
+git remote -v (see all the alias of remote repos)
+git pull (before you can git push something on remote repo)
+git branch (see all the branches and where you are)
+git checkout -b <new_branch> (create new branch)
+git checkout <branch_name>
+after some modifications:
+1. git add .
+2. git commit -m "type something"
+3. git push <alias for remote repos or url> <branch>
+4. git push -f (to force update)
+
+
+grep -r -C <pattern> ./
