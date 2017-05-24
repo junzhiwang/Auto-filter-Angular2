@@ -3,7 +3,6 @@ import {ArtistUnitComponent} from './artistunit_component';
 import {ArtistDetailsComponent} from './artistdetails_component';
 import {Artist} from './artist';
 import {SearchPipe} from './search_pipe';
-
 @Component({
   selector : 'my-app',
   templateUrl : '../partials/appComponent.html',
